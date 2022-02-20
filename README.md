@@ -1,5 +1,5 @@
 # dcard-backend-hw
-Dcard backend intern homework
+Dcard backend intern homework, written with go lang.
 
 [Document](https://drive.google.com/file/d/1AreBiHDUYXH6MI5OqWpKP-f6-W0zA8np/view)
 
