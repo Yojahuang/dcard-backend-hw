@@ -16,7 +16,7 @@ import (
 
 import (
     "dcard-backend-hw/model"
-    "dcard-backend-hw/handler"
+    "dcard-backend-hw/handler/api"
 )
 
 type requestHandlerFunction func(db *gorm.DB, w http.ResponseWriter, r *http.Request)
