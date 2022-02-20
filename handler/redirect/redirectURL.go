@@ -27,9 +27,7 @@ func hasExpired(url model.Url) bool {
     }
 
     now := time.Now()
-    log.Println(exp, now)
     if now.After(exp) {
-        log.Println("dsfjidwfjierw")
 		return true
     }
 
@@ -37,7 +35,6 @@ func hasExpired(url model.Url) bool {
 }
 
 func RedirectURL(db *gorm.DB, w http.ResponseWriter, r *http.Request) {
-    _ = db
     vars := mux.Vars(r)
 
     tmp, _ := strconv.Atoi(vars["id"])
@@ -55,4 +52,6 @@ func RedirectURL(db *gorm.DB, w http.ResponseWriter, r *http.Request) {
         return
     }
 
+    w.Header().Add("Location", url.OriginUrl)
+    w.WriteHeader(http.StatusSeeOther)
 }
