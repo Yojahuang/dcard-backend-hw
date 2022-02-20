@@ -1,0 +1,9 @@
+version: "3.8"
+
+services:
+    go_app:
+        build: .
+        ports:
+            - "80:80"
+        volumes:
+            - ./database:/usr/src/app/database
