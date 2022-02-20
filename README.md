@@ -5,6 +5,6 @@ Dcard backend intern homework
 
 ## To do
 
-- Separate database automigrate function out into a single file.
-- Dockerize the project
-- Check whether the time format is RFC3339 or not
+- [ ] Separate database automigrate function out into a single file.
+- [ ] Dockerize the project
+- [ ] Check whether the time format is RFC3339 or not
