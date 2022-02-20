@@ -29,7 +29,7 @@ func requestFuncWrapper(db *gorm.DB, handler requestHandlerFunction) http.Handle
 
 func Init() {
     log.Println("Connecting to database.db...")
-    db, err := gorm.Open(sqlite.Open("database.db"), &gorm.Config{})
+    db, err := gorm.Open(sqlite.Open("databases/database.db"), &gorm.Config{})
     log.Println("Done")
 
     log.Println("Migrating database.db...")
