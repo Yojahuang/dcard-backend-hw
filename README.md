@@ -6,3 +6,4 @@ Dcard backend intern homework
 ## To do
 
 - Separate database automigrate function out into a single file.
+- Dockerize the project
