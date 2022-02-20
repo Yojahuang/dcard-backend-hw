@@ -17,6 +17,7 @@ import (
 import (
     "dcard-backend-hw/model"
     "dcard-backend-hw/handler/api"
+    "dcard-backend-hw/handler/redirect"
 )
 
 type requestHandlerFunction func(db *gorm.DB, w http.ResponseWriter, r *http.Request)
@@ -41,8 +42,8 @@ func Init() {
     log.Println("Done")
 
     router := mux.NewRouter()
-
-    router.HandleFunc("/api/v1/urls", requestFuncWrapper(db, handler.UploadURL)).Methods("POST")
+    router.HandleFunc("/api/v1/urls", requestFuncWrapper(db, apiHandler.UploadURL)).Methods("POST")
+    router.HandleFunc("/{id:[0-9]+}", requestFuncWrapper(db, redirectHandler.RedirectURL)).Methods("GET")
 
     log.Println("API is running on http://localhost!")
     log.Fatal(http.ListenAndServe(":80", router))
