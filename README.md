@@ -7,3 +7,4 @@ Dcard backend intern homework
 
 - Separate database automigrate function out into a single file.
 - Dockerize the project
+- Detect whether the time format is RFC3339 or not
