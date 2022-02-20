@@ -44,6 +44,6 @@ func Init() {
 
     router.HandleFunc("/api/v1/urls", requestFuncWrapper(db, handler.UploadURL)).Methods("POST")
 
-    log.Println("API is running on port 4000!")
-    log.Fatal(http.ListenAndServe(":4000", router))
+    log.Println("API is running on http://localhost!")
+    log.Fatal(http.ListenAndServe(":80", router))
 }
