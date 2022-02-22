@@ -8,6 +8,7 @@ import (
     "strconv"
     "gorm.io/gorm"
     "strings"
+    "time"
 )
 
 import (
@@ -48,6 +49,13 @@ func UploadURL(db *gorm.DB, w http.ResponseWriter, r *http.Request) {
     }
 
     if (!strings.HasPrefix(data.Url, "http://") && !strings.HasPrefix(data.Url, "https://")) {
+        returnErr(w, http.StatusBadRequest)
+        return
+    }
+
+    exp, err := time.Parse(time.RFC3339, data.ExpireAt)
+    if err != nil {
+        log.Println(err)
         returnErr(w, http.StatusBadRequest)
         return
     }

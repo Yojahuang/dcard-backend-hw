@@ -7,4 +7,4 @@ Dcard backend intern homework, written with go lang.
 
 - [ ] Separate database automigrate function out into a single file.
 - [X] Dockerize the project
-- [ ] Check whether the time format is RFC3339 or not
+- [X] Check whether the time format is RFC3339 or not
