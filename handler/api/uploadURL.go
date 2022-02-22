@@ -63,9 +63,10 @@ func UploadURL(db *gorm.DB, w http.ResponseWriter, r *http.Request) {
     url := model.Url{OriginUrl: data.Url, ExpireAt: data.ExpireAt}
     db.Create(&url)
 
-    response := make(map[string]string)
-    response["id"] = strconv.Itoa(int(url.ID))
-    response["shotUrl"] = "http://localhost/" + response["id"]
+    response := map[string]string{
+        "id": strconv.Itoa(int(url.ID)),
+        "shortUrl": "http://localhost/" + strconv.Itoa(int(url.ID)),
+    }
     jsonRes, err := json.Marshal(response)
     if err != nil {
         log.Fatal(err)
