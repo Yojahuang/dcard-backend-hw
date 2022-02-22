@@ -11,20 +11,10 @@ import (
 
 func getTime(after int) string {
 	result := time.Now()
-
-    for ; after != 0; {
-        if after > 0 {
-            result = result.Add(time.Hour)
-            after--
-        } else {
-            result = result.Add(time.Hour * -1)
-            after++
-        }
-    }
+    result = result.Add(time.Hour * time.Duration(after))
 
 	return result.Format(time.RFC3339)
 }
-
 
 func TestHasExpired(t *testing.T) {
     type testCase struct {
