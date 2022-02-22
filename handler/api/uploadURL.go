@@ -53,7 +53,7 @@ func UploadURL(db *gorm.DB, w http.ResponseWriter, r *http.Request) {
         return
     }
 
-    exp, err := time.Parse(time.RFC3339, data.ExpireAt)
+    _, err = time.Parse(time.RFC3339, data.ExpireAt)
     if err != nil {
         log.Println(err)
         returnErr(w, http.StatusBadRequest)
