@@ -10,10 +10,10 @@ import (
 )
 
 func getTime(after int) string {
-	result := time.Now()
+    result := time.Now()
     result = result.Add(time.Hour * time.Duration(after))
 
-	return result.Format(time.RFC3339)
+    return result.Format(time.RFC3339)
 }
 
 func TestHasExpired(t *testing.T) {
